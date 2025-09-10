@@ -8,7 +8,7 @@
   <script src="https://kit.fontawesome.com/58851690d4.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="assets/favicon.ico">
-  <!-- Schema.org: Person (optional, good for SEO) -->
+  <!-- Schema.org: Person (with credential) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -22,7 +22,17 @@
     ],
     "knowsAbout":[
       "Python","Django","Bootstrap","Stripe","AWS S3","PostgreSQL","GitHub Actions","Responsive Web Design","PWA"
-    ]
+    ],
+    "alumniOf": {
+      "@type":"EducationalOrganization",
+      "name":"Code Institute"
+    },
+    "hasCredential": {
+      "@type":"EducationalOccupationalCredential",
+      "credentialCategory":"Diploma",
+      "name":"Level 5 Diploma in Full Stack Software Development (E-commerce Applications)",
+      "recognizedBy": { "@type":"Organization", "name":"Code Institute" }
+    }
   }
   </script>
 </head>
@@ -41,6 +51,10 @@
         <p class="lead mb-3">
           Junior Full-Stack Developer focused on building clean, reliable web apps and e-commerce experiences.
           I enjoy turning complex flows into simple, usable interfaces—then deploying them with confidence.
+        </p>
+        <p class="text-muted mb-4">
+          I hold a <strong>Level 5 Diploma in Full Stack Software Development (E-commerce Applications)</strong> from Code Institute (2025).
+          Training covered Django, Stripe payments, AWS S3, SEO, UX, and Agile teamwork—skills I apply directly in my projects.
         </p>
         <div class="d-flex flex-wrap gap-2">
           <a class="btn btn-primary" href="projects.html"><i class="fa-solid fa-code"></i> See my work</a>
