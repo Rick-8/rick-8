@@ -1,0 +1,532 @@
+/* assets/css/style.css */
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&display=swap");
+
+/* =========================================================
+   THEME VARIABLES
+   ========================================================= */
+:root {
+  /* Brand palette */
+  --navy: #010154; /* header/footer primary */
+  --navy-2: #1a1a8c; /* gradient partner for header */
+  --text-on-dark: #f2f6ff; /* off-white for legibility on navy */
+  --muted: #b9c4d6; /* muted text on dark */
+  --red: #e11d48; /* deep bright red for titles/buttons */
+  --red-link: #ff3b5a; /* brighter red for small link text (AA on dark) */
+  --red-hover: #ff4d6d; /* hover state */
+}
+
+/* =========================================================
+   GLOBAL BASE
+   ========================================================= */
+html,
+body {
+  font-family: "Exo 2", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  scroll-behavior: smooth; /* fallback if JS disabled */
+}
+
+/* Optional dark gradient background for pages using the theme class */
+body.theme-royal {
+  background: radial-gradient(
+      1200px 800px at 15% -10%,
+      rgba(255, 255, 255, 0.06),
+      transparent 60%
+    ),
+    radial-gradient(
+      900px 600px at 85% 110%,
+      rgba(255, 255, 255, 0.04),
+      transparent 60%
+    ),
+    linear-gradient(160deg, var(--navy), var(--navy-2));
+  color: var(--text-on-dark);
+}
+body.theme-royal .text-muted {
+  color: var(--muted) !important;
+}
+
+/* General link color on light backgrounds (header/footer override below) */
+a {
+  color: var(--red);
+}
+a:hover {
+  color: var(--red-hover);
+}
+
+/* =========================================================
+   NAVBAR (HEADER)
+   - Navy background, white links, Contact link in red by default
+   ========================================================= */
+/* Works if you add 'header-nav' to your navbar, OR when body has theme-royal */
+.header-nav.navbar,
+.theme-royal .navbar {
+  background: linear-gradient(160deg, var(--navy), var(--navy-2));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Brand */
+.header-nav .navbar-brand,
+.theme-royal .navbar .navbar-brand {
+  color: var(--text-on-dark);
+}
+.header-nav .navbar-brand:hover,
+.theme-royal .navbar .navbar-brand:hover {
+  color: var(--red-link);
+}
+
+/* Links default to white */
+.header-nav .navbar-nav .nav-link,
+.theme-royal .navbar .navbar-nav .nav-link {
+  color: var(--text-on-dark);
+  opacity: 0.95;
+}
+.header-nav .navbar-nav .nav-link:hover,
+.header-nav .navbar-nav .nav-link:focus,
+.theme-royal .navbar .navbar-nav .nav-link:hover,
+.theme-royal .navbar .navbar-nav .nav-link:focus {
+  color: var(--red-link);
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+/* Contact link highlighted in red permanently */
+.header-nav .navbar-nav .nav-link.nav-contact,
+.theme-royal .navbar .navbar-nav .nav-link.nav-contact {
+  color: var(--red-link);
+  font-weight: 600;
+}
+.header-nav .navbar-nav .nav-link.nav-contact:hover,
+.header-nav .navbar-nav .nav-link.nav-contact:focus,
+.theme-royal .navbar .navbar-nav .nav-link.nav-contact:hover,
+.theme-royal .navbar .navbar-nav .nav-link.nav-contact:focus {
+  color: var(--red-hover);
+}
+
+/* Active page indicator: keep link white, add red underline */
+.header-nav .navbar-nav .nav-link[aria-current="page"],
+.theme-royal .navbar .navbar-nav .nav-link[aria-current="page"] {
+  color: var(--text-on-dark);
+  position: relative;
+}
+.header-nav .navbar-nav .nav-link[aria-current="page"]::after,
+.theme-royal .navbar .navbar-nav .nav-link[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0.35rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--red-link);
+}
+
+/* Mobile toggler on dark bg */
+.header-nav .navbar-toggler,
+.theme-royal .navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.35);
+}
+.header-nav .navbar-toggler-icon,
+.theme-royal .navbar .navbar-toggler-icon {
+  filter: invert(1) grayscale(100);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  background: var(--navy);
+  color: var(--text-on-dark);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.site-footer a {
+  color: var(--text-on-dark);
+}
+.site-footer a:hover {
+  color: var(--red-link);
+}
+
+/* =========================================================
+   TITLES & TYPOGRAPHY
+   ========================================================= */
+.hero {
+  padding: 5rem 0 3rem;
+}
+.hero h1 {
+  font-weight: 700;
+}
+.hero .lead {
+  opacity: 0.9;
+}
+
+/* Page titles in red */
+.page-title,
+h1.page-title,
+h1 {
+  color: var(--red);
+}
+
+/* Muted text on dark */
+.text-muted {
+  color: var(--muted) !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.btn-primary {
+  background-color: var(--navy);
+  color: #ffffff;
+  border: 1px solid black;   /* solid black outline effect */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--navy-2);
+  border: 1px solid black;   /* keep outline consistent */
+  color: #ffffff;
+}
+
+.btn-danger {
+  background-color: var(--red);
+  color: #ffffff;
+  border: 1px solid black;   /* matches primary for consistency */
+}
+
+.btn-danger:hover,
+.btn-danger:focus {
+  background-color: #c8102e;
+  border: 0.5px solid black;
+  color: #ffffff;
+}
+
+
+/* Optional alt accent button for dark sections */
+.btn-accent {
+  --bs-btn-bg: var(--red);
+  --bs-btn-border-color: var(--red);
+  --bs-btn-hover-bg: var(--red-hover);
+  --bs-btn-hover-border-color: var(--red-hover);
+  color: #111;
+}
+
+/* =========================================================
+   CARDS & SURFACES
+   ========================================================= */
+.card {
+  border-radius: 1rem;
+}
+
+/* Glass cards for dark backgrounds */
+.bg-glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-on-dark);
+}
+
+/* Optional light section to break up dark pages */
+.section-light {
+  background: #ffffff;
+  color: var(--navy);
+}
+.section-light .text-muted {
+  color: #4b5873 !important;
+}
+.section-light a {
+  color: var(--red);
+}
+.section-light a:hover {
+  color: #b71333;
+}
+
+/* Decorative red stripe (use on sections/cards) */
+.red-stripe {
+  position: relative;
+}
+.red-stripe::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 4px;
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(90deg, var(--red), var(--red-hover));
+}
+
+/* =========================================================
+   ACCESSIBILITY FOCUS
+   ========================================================= */
+:focus {
+  outline: 3px solid var(--red);
+  outline-offset: 2px;
+}
+
+/* =========================================================
+   LEGACY / CLEANUP FROM ORIGINAL
+   - Removed old gold accent on .nav-link.active; we now use white + underline
+   ========================================================= */
+.navbar-brand {
+  letter-spacing: 0.5px;
+}
+/* Old rule replaced:
+   .nav-link.active { color: var(--gold) !important; } */
+.nav-link.active {
+  color: var(--text-on-dark) !important;
+}
+
+/* ========== Motion (respects reduced motion) ========== */
+@media (prefers-reduced-motion: no-preference) {
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+  }
+  .reveal.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger helper via data-delay (ms) */
+  .reveal[data-animate-delay] {
+    transition-delay: calc(var(--anim-delay, 0ms));
+  }
+
+  /* Subtle “float” for hero image */
+  @keyframes floaty {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-6px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .floaty {
+    animation: floaty 4.5s ease-in-out infinite;
+  }
+
+  /* Card lift on hover (only for pointer devices) */
+  @media (hover: hover) and (pointer: fine) {
+    .card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  /* Button press */
+  .btn:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Safety: if user prefers reduced motion, show content normally */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ===== Page-local sprinkles made global ===== */
+@media (prefers-reduced-motion: no-preference) {
+  /* Gradient underline utility */
+  .brand-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .brand-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff2d55, #ff6a00);
+    border-radius: 2px;
+    opacity: 0.85;
+  }
+
+  /* Gentle bob for icons */
+  @keyframes bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  .bob {
+    animation: bob 3.8s ease-in-out infinite;
+    will-change: transform;
+  }
+
+  /* Shimmer divider */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.05)
+    );
+    height: 2px;
+    border-radius: 2px;
+  }
+  .shimmer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+    animation: shimmer 2.5s linear infinite;
+  }
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* Typewriter caret blink */
+  .tw-caret::after {
+    content: "▍";
+    margin-left: 4px;
+    opacity: 0.9;
+    animation: caret 1s steps(1) infinite;
+  }
+  @keyframes caret {
+    0%,
+    50% {
+      opacity: 0.9;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
+  }
+}
+
+/* Optional "glass" card style on dark pages */
+@media (prefers-color-scheme: dark), (prefers-reduced-motion: no-preference) {
+  .theme-royal .card.glassy {
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* Hero Lottie sizing & spacing */
+.hero-lottie {
+  max-width: 380px; /* adjust until it looks right */
+  margin: 0 auto;
+  display: block;
+  position: relative;
+  top: -20px; /* move it up slightly */
+}
+
+@media (min-width: 992px) {
+  /* large screens */
+  .hero-lottie {
+    max-width: 320px;
+    top: -10px;
+  }
+}
+@media (max-width: 576px) {
+  /* mobiles */
+  .hero-lottie {
+    max-width: 200px;
+    top: 0;
+  }
+}
+
+/* =========================================================
+   HIGH-CONTRAST OVERRIDES FOR DARK (NAVY) THEME
+   ========================================================= */
+
+/* Ensure readable body & card text on dark pages */
+body.theme-royal,
+body.theme-royal p,
+body.theme-royal li,
+body.theme-royal .card,
+body.theme-royal .card p,
+body.theme-royal .card li {
+  color: var(--text-on-dark);
+}
+
+/* Muted/secondary text on dark */
+body.theme-royal .text-muted,
+body.theme-royal small,
+body.theme-royal .card .text-muted {
+  color: var(--muted) !important;
+}
+
+/* Links on dark pages use brighter red */
+body.theme-royal a {
+  color: var(--red-link);
+}
+body.theme-royal a:hover,
+body.theme-royal a:focus {
+  color: var(--red-hover);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+/* Outline-secondary button contrast on dark */
+body.theme-royal .btn-outline-secondary {
+  color: var(--text-on-dark);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+body.theme-royal .btn-outline-secondary:hover,
+body.theme-royal .btn-outline-secondary:focus {
+  color: #111;
+  background: var(--text-on-dark);
+  border-color: var(--text-on-dark);
+}
+
+/* ======== CONTACT PAGE-SAFE OVERRIDES ======== */
+/* Make non-glassy cards (like the contact form/info) use dark text on light background */
+body.theme-royal .card:not(.glassy),
+body.theme-royal .card:not(.glassy) p,
+body.theme-royal .card:not(.glassy) li,
+body.theme-royal .card:not(.glassy) label,
+body.theme-royal .card:not(.glassy) input,
+body.theme-royal .card:not(.glassy) textarea {
+  color: #111;
+}
+
+/* Links inside light cards should use standard brand red */
+body.theme-royal .card:not(.glassy) a {
+  color: var(--red);
+}
+body.theme-royal .card:not(.glassy) a:hover,
+body.theme-royal .card:not(.glassy) a:focus {
+  color: var(--red-hover);
+  text-decoration: underline;
+  text-underline-offset: 0.2rem;
+}
+
+/* Equal-height alignment for the two contact cards on desktop */
+@media (min-width: 992px) {
+  .contact-row > [class*="col-"] {
+    display: flex;
+  }
+  .contact-row .card {
+    flex: 1;
+  }
+}
