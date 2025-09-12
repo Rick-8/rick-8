@@ -45,6 +45,17 @@ body.theme-royal .text-muted {
 }
 
 /* General link color on light backgrounds (header/footer override below) */
+
+/* Keep specific letters in the brand red */
+.navbar-brand .brand-accent {
+  font-size: larger;
+  color: var(--red-link) !important;
+}
+.navbar-brand:hover .brand-accent {
+  color: var(--red-hover) !important;
+}
+
+
 a {
   color: var(--red);
 }
@@ -56,8 +67,7 @@ a:hover {
    NAVBAR (HEADER)
    - Navy background, white links, Contact link in red by default
    ========================================================= */
-/* Works if you add 'header-nav' to your navbar, OR when body has theme-royal */
-.header-nav.navbar,
+
 .theme-royal .navbar {
   background: linear-gradient(160deg, var(--navy), var(--navy-2));
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
