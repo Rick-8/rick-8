@@ -199,6 +199,44 @@ h1 {
   color: #ffffff;
 }
 
+/* ===== Brand buttons (authentic colours) ===== */
+.btn-linkedin {
+  background: #0A66C2;
+  border-color: #0A66C2;
+  color: #fff;
+}
+.btn-linkedin:hover,
+.btn-linkedin:focus {
+  background: #084d98;
+  border-color: #084d98;
+  color: #fff;
+}
+
+.btn-github {
+  background: #24292F;  /* GitHub “Ink” */
+  border-color: #24292F;
+  color: #fff;
+}
+.btn-github:hover,
+.btn-github:focus {
+  background: #0d1117;
+  border-color: #0d1117;
+  color: #fff;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  border-color: #25D366;
+  color: #fff;
+}
+.btn-whatsapp:hover,
+.btn-whatsapp:focus {
+  background: #128C7E;
+  border-color: #128C7E;
+  color: #fff;
+}
+
+
 
 /* Optional alt accent button for dark sections */
 .btn-accent {
@@ -521,12 +559,40 @@ body.theme-royal .card:not(.glassy) a:focus {
   text-underline-offset: 0.2rem;
 }
 
-/* Equal-height alignment for the two contact cards on desktop */
-@media (min-width: 992px) {
+/* Equal-height + proper stacking for the two contact columns */
+@media (min-width: 768px) { /* from md and up, since your cols use col-md-* */
   .contact-row > [class*="col-"] {
     display: flex;
+    flex-direction: column;   /* <-- keep header above card */
+    align-items: stretch;
   }
   .contact-row .card {
-    flex: 1;
+    flex: 1;                  /* <-- make cards equal height */
   }
+}
+
+/* Don't treat button anchors like normal links (stops red + underline) */
+a.btn,
+a.btn:hover,
+a.btn:focus {
+  text-decoration: none;
+}
+
+/* Theme-level: override the red link color for button anchors */
+body.theme-royal a.btn,
+body.theme-royal .card:not(.glassy) a.btn {
+  color: inherit; /* let the button class decide */
+}
+
+/* Ensure brand/filled buttons keep white text everywhere */
+body.theme-royal a.btn-whatsapp,
+body.theme-royal a.btn-linkedin,
+body.theme-royal a.btn-github,
+body.theme-royal a.btn-primary {
+  color: #fff;
+}
+
+/* Keep outline-secondary looking normal on light cards */
+body.theme-royal .card:not(.glassy) a.btn.btn-outline-secondary {
+  color: #212529; /* Bootstrap default text for outline-secondary */
 }
